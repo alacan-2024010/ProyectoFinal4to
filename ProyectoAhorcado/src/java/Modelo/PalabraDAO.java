@@ -30,11 +30,11 @@ public class PalabraDAO {
 
             while (rs.next()) {
                 Palabra p = new Palabra();
-                p.setCodigoPalabra(rs.getInt("codigoPalabra"));
+                p.setCodigoPalabra(rs.getInt("codigo_palabra"));
                 p.setPalabra(rs.getString("palabra"));
-                p.setPistaUno(rs.getString("pistaUno"));
-                p.setPistaDos(rs.getString("pistaDos"));
-                p.setPistaTres(rs.getString("pistaTres"));
+                p.setPistaUno(rs.getString("pista_uno"));
+                p.setPistaDos(rs.getString("pista_dos"));
+                p.setPistaTres(rs.getString("pista_tres"));
                 lista.add(p);
             }
         } catch (Exception e) {

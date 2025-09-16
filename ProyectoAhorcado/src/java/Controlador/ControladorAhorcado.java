@@ -47,11 +47,11 @@ public class ControladorAhorcado extends HttpServlet {
         for (int i = 0; i < palabras.size(); i++) {
             Palabra palabra = palabras.get(i);
             json.append("{");
-            json.append("\"codigoPalabra\":").append(palabra.getCodigoPalabra()).append(",");
+            json.append("\"codigo_palabra\":").append(palabra.getCodigoPalabra()).append(",");
             json.append("\"palabra\":\"").append(palabra.getPalabra()).append("\",");
-            json.append("\"pistaUno\":\"").append(palabra.getPistaUno()).append("\",");
-            json.append("\"pistaDos\":\"").append(palabra.getPistaDos()).append("\",");
-            json.append("\"pistaTres\":\"").append(palabra.getPistaTres()).append("\"");
+            json.append("\"pista_uno\":\"").append(palabra.getPistaUno()).append("\",");
+            json.append("\"pista_dos\":\"").append(palabra.getPistaDos()).append("\",");
+            json.append("\"pista_tres\":\"").append(palabra.getPistaTres()).append("\"");
             json.append("}");
             
             if (i < palabras.size() - 1) {

@@ -26,7 +26,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{codigoUsuario}")
-    public Usuario getUsuarioById(@PathVariable Integer codigoUsuario){
+    public Usuario getUsuarioByCodigo(@PathVariable Integer codigoUsuario){
         return usuarioService.getUsuarioByCodigo(codigoUsuario);
     }
 

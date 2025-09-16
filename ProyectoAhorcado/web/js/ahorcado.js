@@ -38,12 +38,12 @@ async function cargarPalabraDesdeBD() {
         espacios = Array(palabraElegida.length).fill("_");
         palabraOculta.textContent = espacios.join(" ");
 
-        pista1.textContent = "Pista No.1: " + (obj.pistaUno || obj.pista || "");
-        pista2.textContent = "Pista No.2: " + (obj.pistaDos || "");
-        pista3.textContent = "Pista No.3: " + (obj.pistaTres || "");
+        pista1.textContent = "Pista No.1: " + (obj.pista_uno|| obj.pista || "");
+        pista2.textContent = "Pista No.2: " + (obj.pista_dos || "");
+        pista3.textContent = "Pista No.3: " + (obj.pista_tres || "");
     } catch (err) {
         console.error(err);
-        alert("⚠️ " + err.message);
+        alert( err.message);
     }
 }
 
