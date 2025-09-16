@@ -19,7 +19,7 @@
             <p>Ingresa tus datos para poder iniciar sesion</p>
 
             <form action="Validar" method="POST">
-                <input type="tex" name="txtCorreo" placeholder="Correo" required />
+                <input type="tex" name="txtNombre" placeholder="Nombre" required />
                 <input type="password" name="txtContrasena" placeholder="Contraseña" required />
                 <button type="submit" name="btnIngresar" value="Ingresar">Iniciar Sesión</button>
             </form>

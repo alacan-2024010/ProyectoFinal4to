@@ -4,6 +4,8 @@
 */
 package Controlador;
  
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpSession;
 */
 public class Validar extends HttpServlet {
  
+     UsuarioDAO dao = new UsuarioDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -70,20 +73,17 @@ public class Validar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Obtener los parámetros del formulario
-        String correo = request.getParameter("txtCorreo");
+        String nombre = request.getParameter("txtNombre");
         String contraseña = request.getParameter("txtContrasena");
-
-        // Validación 
-        String correoValido = "1";
-        String contraseñaValida = "1";
-
-        // Si las credenciales son correctas
-        if (correo.equals(correoValido) && contraseña.equals(contraseñaValida)) {
-            response.sendRedirect("ahorcado.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+        
+        Usuario user = dao.validarUsuario(nombre, contraseña);
+                if (user != null) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("nombre", user);
+                    response.sendRedirect("ahorcado.jsp");
+                } else {
+                    response.sendRedirect("index.jsp?error=1");
+                }
     
     }
  
