@@ -1,0 +1,68 @@
+drop database if exists DB_Ahorcado;
+create database DB_Ahorcado;
+use DB_Ahorcado;
+
+create table Usuarios(
+	codigo_usuario int auto_increment,
+    nombre varchar(25), 
+    contraseña varchar(25) unique,
+    primary key PK_codigo_usuario(codigo_usuario)
+);
+
+create table Palabras(
+	codigo_palabra int auto_increment,
+    palabra varchar(20),
+    pista_uno varchar(100),
+    pista_dos varchar(100),
+    pista_tres varchar(100),
+    primary key PK_codigo_palabra(codigo_palabra)
+);
+
+DELIMITER $$
+create procedure sp_ValidarUsuario(
+		in p_nombre varchar(25),
+		in p_contraseña varchar(25))
+	begin
+		select codigo_usuario, nombre from Usuarios
+		where nombre = p_nombre and contraseña = p_contraseña;
+	end $$
+DELIMITER ;
+call sp_ValidarUsuario('Francisco', 'asdkjdl');
+
+DELIMITER $$
+create procedure sp_InsertarPalabras(
+	in palabra varchar(20),
+    in pista_uno varchar(100),
+    in pista_dos varchar(100),
+    in pista_tres varchar(100))
+	begin
+		insert into Palabras (palabra, pista_uno, pista_dos, pista_tres)
+			values(palabra, pista_uno, pista_dos, pista_tres);
+		
+	end $$
+DELIMITER ;
+call sp_InsertarPalabras("PROGRAMADOR", "Escribe código", "Trabaja con software", "Conoce lenguajes");
+call sp_InsertarPalabras("ELEFANTE", "Animal de gran tamaño", "Tiene trompa", "Vive en África y Asia");
+call sp_InsertarPalabras ("VEHICULO", "Se usa para transportarse", "Tiene ruedas", "Puede ser coche, moto o camión");
+call sp_InsertarPalabras  ("GUATEMALA", "Es un país en Centroamérica", "Tiene volcanes", "Su capital es Ciudad de Guatemala");
+call sp_InsertarPalabras ("DESAYUNO", "Es la primera comida del día", "Suele incluir café o jugo", "Comida matutina");
+call sp_InsertarPalabras("INTERNET", "Red global de comunicaciones", "Se usa para navegar", "Conecta computadoras en todo el mundo");
+call sp_InsertarPalabras("TELEVISIÓN", "Es un medio de comunicación", "Tiene canales", "Se usa para ver programas y películas");
+call sp_InsertarPalabras ("COMPUTADORA", "Herramienta electrónica", "Tiene teclado y pantalla", "Se usa para navegar y trabajar");
+call sp_InsertarPalabras ("IMPRESORA", "Dispositivo de salida", "Imprime documentos", "Puede ser de tinta o láser");
+call sp_InsertarPalabras ("PELICULA", "Forma de entretenimiento", "Puede ser de cine o video", "Se proyecta en una pantalla grande");
+CALL sp_InsertarPalabras ("BICICLETA", "Medio de transporte", "Tiene dos ruedas", "Se impulsa con pedales");
+CALL sp_InsertarPalabras ("GUITARRA", "Instrumento musical", "Tiene cuerdas", "Se toca con las manos o pua");
+CALL sp_InsertarPalabras ("VOLCAN", "Accidente geográfico", "Expulsa lava", "Puede estar activo o inactivo");
+
+DELIMITER $$
+create procedure sp_ListarPalabras()
+	begin
+		select palabra, pista_uno, pista_dos, pista_tres from Palabras;
+	end $$
+DELIMITER ;
+call sp_ListarPalabras();
+
+select * from Palabras;
+
+select * from Usuarios;
