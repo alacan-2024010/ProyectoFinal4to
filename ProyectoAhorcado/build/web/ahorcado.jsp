@@ -13,7 +13,13 @@
         <link rel="stylesheet" href="Styles/ahorcado.css"/>
     </head>
     <body>
-
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <img id="modal-imagen" src="" alt="Resultado del juego">
+                <h2 id="modal-mensaje"></h2>
+                <button id="modal-cerrar" onclick="cerrarModal(); reiniciar();">Aceptar</button>
+            </div>
+        </div>
         <div class="juego-container">
             <div id="info-juego">
                 <h1>Juego del Ahorcado</h1>
@@ -47,7 +53,15 @@
             <div id="muñeco-container">
                 <img id="muñeco" src="img/Ahorcado.png" alt="Muñeco del Ahorcado">
             </div>
+            
+            <div class="resultado-container" id="imagenResultado" style="display:none; text-align: center;">
+            </div>
         </div>
         <script src="js/ahorcado.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                cerrarModal();
+            });
+        </script>
     </body>
 </html>

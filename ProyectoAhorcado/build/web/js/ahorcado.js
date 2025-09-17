@@ -18,7 +18,11 @@ const imagen = document.getElementById("muñeco");
 const cronometroEl = document.getElementById("cronometro");
 const btnPausar = document.getElementById("btn-pausar");
 const btnSalir = document.getElementById("btn-salir");
-
+const img = document.getElementById("imagenResultado");
+const modal = document.getElementById("modal");
+const modalMensaje = document.getElementById("modal-mensaje");
+const modalImagen = document.getElementById("modal-imagen");
+const modalCerrar = document.getElementById("modal-cerrar");
 
 async function cargarPalabraDesdeBD() {
     try {
@@ -83,14 +87,31 @@ function reiniciar() {
     pista2.textContent = "";
     pista3.textContent = "";
     imagen.src = "img/Ahorcado.png";
+    
+     const contenedorImagenResultado = document.getElementById("imagenResultado");
+    contenedorImagenResultado.innerHTML = "";
+    contenedorImagenResultado.classList.remove("mostrar");
 
     tiempoRestante = 300;
     cronometroEl.textContent = tiempoRestante;
     juegoEnPausa = false;
     btnPausar.textContent = "Pausar";
-
+    cerrarModal();
     comenzar();
+    
 }
+
+function mostrarModal(mensaje, imagenSrc) {
+    modalMensaje.textContent = mensaje;
+    modalImagen.src = imagenSrc;
+    modal.style.display = "block";
+}
+
+function cerrarModal() {
+    modal.style.display = "none";
+}
+
+modalCerrar.addEventListener("click", cerrarModal);
 
 function verificar() {
     const verificarLetra = document.getElementById("letra");
@@ -116,13 +137,11 @@ function verificar() {
     }
 
     if (!espacios.includes("_")) {
-        alert("¡Ganaste!");
-        reiniciar();
+        mostrarModal("¡Ganaste!", "img/Ganaste.webp");
     }
 
     if (errores === 6) {
-        alert("¡Perdiste! La palabra era: " + palabraElegida);
-        reiniciar();
+        mostrarModal("¡Perdiste! La palabra era: " + palabraElegida, "img/Perdiste.png");
     }
 }
 
@@ -132,7 +151,7 @@ function actualizarCronometro() {
         cronometroEl.textContent = tiempoRestante;
     } else if (tiempoRestante <= 0) {
         clearInterval(temporizador);
-        alert("¡Se acabó el tiempo! La palabra era: " + palabraElegida);
+         mostrarModal("¡Se acabó el tiempo! La palabra era: "  + palabraElegida, "img/Perdiste.png");
         reiniciar();
     }
 }
@@ -150,3 +169,5 @@ function pausarJuego() {
 function salirJuego() {
     window.location.href = "index.jsp";
 }
+
+
