@@ -26,8 +26,8 @@ public class Validacion {
         if (usuario.getContraseña() == null || usuario.getContraseña().isEmpty()){
             return "La contraseña no puede estar vacía";
         }
-        if (usuarioRepository.existsByContraseña(usuario.getContraseña())){
-            return "La contraseña: " + usuario.getContraseña() + " ya esta en uso";
+        if (usuarioRepository.existsByNombre(usuario.getNombre())){
+            return "El nombre de Usuario: " + usuario.getNombre() + " ya esta en uso";
         }
 
         return null;
