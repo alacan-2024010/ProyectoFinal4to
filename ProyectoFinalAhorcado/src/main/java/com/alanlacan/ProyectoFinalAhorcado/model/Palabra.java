@@ -2,6 +2,7 @@ package com.alanlacan.ProyectoFinalAhorcado.model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name="Palabras")
 public class Palabra {

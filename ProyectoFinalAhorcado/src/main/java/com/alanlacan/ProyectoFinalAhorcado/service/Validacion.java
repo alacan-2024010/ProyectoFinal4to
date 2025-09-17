@@ -31,6 +31,16 @@ public class Validacion {
         if (palabraRepository.existsByPalabra((palabra.getPalabra()))){
             return "La Palabra: " + palabra.getPalabra() + " ya esta en la base de datos";
         }
+
+        String palabraVerificar = palabra.getPalabra();
+
+        if (palabraVerificar.length()<=8){
+            return "La palabra: "+ palabra.getPalabra() +" debe tener minimo 8 caracteres";
+        }
+
+        if (!palabraVerificar.matches("^[a-zA-Z]+$")) {
+            return "La palabra: "+palabra.getPalabra()+" solo puede contener letras";
+        }
         return null;
     }
 

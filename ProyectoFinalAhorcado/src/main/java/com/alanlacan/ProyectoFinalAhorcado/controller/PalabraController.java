@@ -4,6 +4,7 @@ import com.alanlacan.ProyectoFinalAhorcado.model.Palabra;
 import com.alanlacan.ProyectoFinalAhorcado.model.Usuario;
 import com.alanlacan.ProyectoFinalAhorcado.service.PalabraService;
 import com.alanlacan.ProyectoFinalAhorcado.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +27,12 @@ public class PalabraController {
     }
 
     @GetMapping("/{codigoPalabra}")
-    public Palabra getPalabraByCodigo(@PathVariable Integer codigoPalabra){
+    public Palabra getPalabraByCodigo( @PathVariable Integer codigoPalabra){
         return  palabraService.getPalabraByCodigo(codigoPalabra);
     }
 
     @PostMapping
-    public ResponseEntity<Object> createPalabra(@RequestBody Palabra palabra){
+    public ResponseEntity<Object> createPalabra( @RequestBody Palabra palabra){
         try{
             Palabra nuevo = palabraService.savePalabra(palabra);
             return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
