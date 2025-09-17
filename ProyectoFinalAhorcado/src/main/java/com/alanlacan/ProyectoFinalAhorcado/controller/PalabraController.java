@@ -68,4 +68,14 @@ public class PalabraController {
             return new ResponseEntity<>("No se encontró a la Palabra con el Codigo " + codigoPalabra, HttpStatus.NOT_FOUND);
         }
     }
+
+    @DeleteMapping("/")
+    public ResponseEntity<String> deletePalabraSinId() {
+        return new ResponseEntity<>("Se requiere un Código de palabra en la ruta para realizar una eliminación", HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("")
+    public ResponseEntity<String> deletePalabraSin() {
+        return new ResponseEntity<>("Se requiere un Código de palabra en la ruta para realizar una eliminación", HttpStatus.BAD_REQUEST);
+    }
 }
