@@ -40,6 +40,10 @@ public class UsuarioServiceImplements implements  UsuarioService{
     public Usuario updateUsuario(Integer codigoUsuario, Usuario usuario) {
         Usuario actualizar = usuarioRepository.findById(codigoUsuario).orElse(null);
 
+        if (actualizar == null) {
+            throw new DataIntegrityViolationException("Usuario no encontrado con el código: " + codigoUsuario);
+        }
+
         if (actualizar != null){
             actualizar.setNombre(usuario.getNombre());
             actualizar.setContraseña(usuario.getContraseña());

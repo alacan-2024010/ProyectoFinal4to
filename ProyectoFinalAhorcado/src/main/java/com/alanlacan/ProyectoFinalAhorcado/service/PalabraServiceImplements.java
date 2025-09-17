@@ -43,6 +43,10 @@ public class PalabraServiceImplements implements PalabraService{
     public Palabra updatePalabra(Integer codigoPalabra, Palabra palabra) {
         Palabra actualizar = palabraRepository.findById(codigoPalabra).orElse(null);
 
+        if (actualizar == null) {
+            throw new DataIntegrityViolationException("Palabra no encontrada con el código: " + codigoPalabra);
+        }
+
         if (actualizar!=null){
             actualizar.setPalabra(palabra.getPalabra());
             actualizar.setPistaUno(palabra.getPistaUno());
