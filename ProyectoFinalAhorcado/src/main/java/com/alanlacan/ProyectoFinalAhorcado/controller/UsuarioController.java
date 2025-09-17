@@ -50,6 +50,17 @@ public class UsuarioController {
         }
     }
 
+    @PutMapping("/")
+    public ResponseEntity<String> updateUsuarioSinId(@RequestBody Usuario usuario) {
+        return new ResponseEntity<>("Se requiere un Código de usuario en la ruta para realizar una actualización", HttpStatus.BAD_REQUEST);
+    }
+
+    @PutMapping("")
+    public ResponseEntity<String> updateUsuarioSinNada(@RequestBody Usuario usuario) {
+        return new ResponseEntity<>("Se requiere un Código de usuario en la ruta para realizar una actualización", HttpStatus.BAD_REQUEST);
+    }
+
+
     @DeleteMapping("/{codigoUsuario}")
     public ResponseEntity<String> deleteUsuario(@PathVariable Integer codigoUsuario){
         if (usuarioService.getUsuarioByCodigo(codigoUsuario) != null) {
