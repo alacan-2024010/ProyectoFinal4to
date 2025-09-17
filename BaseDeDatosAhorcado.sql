@@ -5,7 +5,7 @@ use DB_Ahorcado;
 create table Usuarios(
 	codigo_usuario int auto_increment,
     nombre varchar(25), 
-    contraseña varchar(25) unique,
+    contraseña varchar(25),
     primary key PK_codigo_usuario(codigo_usuario)
 );
 
