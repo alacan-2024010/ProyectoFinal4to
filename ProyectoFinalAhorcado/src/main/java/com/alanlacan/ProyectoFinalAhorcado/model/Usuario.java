@@ -2,6 +2,7 @@ package com.alanlacan.ProyectoFinalAhorcado.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Usuarios")
@@ -11,9 +12,11 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigoUsuario;
 
+    @NotNull(message = "El nombre no puede estar vacío")
     @Column(name = "nombre")
     private String nombre;
 
+    @NotNull(message = "El contraseña no puede estar vacío")
     @Column(name="contraseña")
     private String contraseña;
 

@@ -25,6 +25,7 @@
                     <button id="inicio" onclick="comenzar()">Iniciar</button>
                     <button id="btn-pausar" onclick="pausarJuego()" >Pausar</button>
                     <button id="btn-reiniciar" onclick="reiniciar()">Reiniciar</button>
+                    <button id="btn-salir" onclick="salirJuego()">Salir</button>
                 </div>
 
                 <div id="pistas">

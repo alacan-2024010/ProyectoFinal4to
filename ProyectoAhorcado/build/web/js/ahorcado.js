@@ -17,6 +17,7 @@ const intentosEl = document.getElementById("intentos");
 const imagen = document.getElementById("muñeco");
 const cronometroEl = document.getElementById("cronometro");
 const btnPausar = document.getElementById("btn-pausar");
+const btnSalir = document.getElementById("btn-salir");
 
 
 async function cargarPalabraDesdeBD() {
@@ -144,4 +145,8 @@ function iniciarCronometro() {
 function pausarJuego() {
     juegoEnPausa = !juegoEnPausa;
     btnPausar.textContent = juegoEnPausa ? "Reanudar" : "Pausar";
+}
+
+function salirJuego() {
+    window.location.href = "index.jsp";
 }

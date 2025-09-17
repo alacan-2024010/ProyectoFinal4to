@@ -70,11 +70,11 @@ button {
 }
 
 #btn-reiniciar {
-    background-color: #d00000;
+    background-color: #3BADCC;
 }
 
 #btn-reiniciar:hover {
-    background-color: #DB1F1F;
+    background-color: #15BBEB;
     transform: scale(1.05);
 }
 
@@ -93,6 +93,15 @@ button {
 
 #btn-verificar:hover {
     background-color: #FF8214;
+    transform: scale(1.05);
+}
+
+#btn-salir {
+    background-color: #d00000; 
+}
+
+#btn-salir:hover {
+    background-color: #DB1F1F; 
     transform: scale(1.05);
 }
 

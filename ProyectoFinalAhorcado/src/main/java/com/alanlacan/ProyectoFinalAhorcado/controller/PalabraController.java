@@ -1,10 +1,7 @@
 package com.alanlacan.ProyectoFinalAhorcado.controller;
 
 import com.alanlacan.ProyectoFinalAhorcado.model.Palabra;
-import com.alanlacan.ProyectoFinalAhorcado.model.Usuario;
 import com.alanlacan.ProyectoFinalAhorcado.service.PalabraService;
-import com.alanlacan.ProyectoFinalAhorcado.service.UsuarioService;
-import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
