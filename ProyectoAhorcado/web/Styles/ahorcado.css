@@ -1,25 +1,33 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #f0f0f0;
+    height: 100%;
+    font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+                url("../img/EstiloInicioSesion.png") no-repeat center center;
+    background-size: cover;
+    color: #f0f0f0;
+    animation: bgPulse 8s ease-in-out infinite alternate;
 }
-
 
 .juego-container {
     display: flex;
     gap: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
     flex-wrap: wrap;
     max-width: 900px;
+    border-top: 6px solid #2196F3;
+    border-bottom: 6px solid #00BCD4;
+    animation: slideIn 1s ease-out;
 }
 
 #info-juego {
@@ -29,95 +37,96 @@ body {
 
 #info-juego h1 {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #ffd700; 
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #00BCD4;
+    text-shadow: 0 0 15px #2196F3, 0 0 30px #0D47A1;
+    animation: glowText 2s ease-in-out infinite alternate;
 }
 
 #cronometro {
     font-weight: bold;
-    color: #ffa500;
+    color: #FF5722;
     display: block;
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;   
+    text-align: center;
+    text-shadow: 0 0 5px #FF5722;
 }
 
 .botones {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
     color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 #inicio {
-    background-color: #0077b6;
+    background: linear-gradient(to right, #0D47A1, #2196F3);
 }
-
 #inicio:hover {
-    background-color: #00b4d8;
-    transform: scale(1.05);
+    background: linear-gradient(to left, #00BCD4, #2196F3);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00BCD4, 0 0 40px #2196F3;
 }
 
 #btn-reiniciar {
-    background-color: #3BADCC;
+    background: linear-gradient(to right, #8E2DE2, #4A00E0);
 }
-
 #btn-reiniciar:hover {
-    background-color: #15BBEB;
-    transform: scale(1.05);
+    background: linear-gradient(to left, #4A00E0, #8E2DE2);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #8E2DE2, 0 0 40px #4A00E0;
 }
 
 #btn-pausar {
     background-color: #79E841;
 }
-
 #btn-pausar:hover {
     background-color: #4BC90A;
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #79E841;
 }
 
 #btn-verificar {
-    background-color: #E86C02;
+    background-color: #FF5722;
 }
-
 #btn-verificar:hover {
-    background-color: #FF8214;
-    transform: scale(1.05);
+    background-color: #FF7043;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #FF5722;
 }
 
 #btn-salir {
-    background-color: #d00000; 
+    background-color: #d00000;
 }
-
 #btn-salir:hover {
-    background-color: #DB1F1F; 
-    transform: scale(1.05);
-}
-
-#pistas p {
-    background-color: rgba(255,255,255,0.1);
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin: 5px 0;
-    font-style: Arial;
+    background-color: #FF0000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #d00000;
 }
 
 #palabra-oculta {
-    font-size: 1.8rem;
-    letter-spacing: 10px;
+    font-size: 2rem;
+    letter-spacing: 12px;
     text-align: center;
-    margin: 20px 0;
+    margin: 25px 0;
+    color: #00BCD4;
+    text-shadow: 0 0 10px #2196F3, 0 0 20px #0D47A1;
+    animation: glowText 1.5s ease-in-out infinite alternate;
 }
 
 #letras-incorrectas, #intentos {
@@ -125,16 +134,24 @@ button {
     margin: 10px 0;
     font-weight: bold;
     text-align: center;
+    color: #B0BEC5;
 }
 
 #letra {
-    padding: 10px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 1.2rem;
     width: 60px;
     text-align: center;
-    border-radius: 5px;
-    border: 2px solid #fff;
+    border-radius: 10px;
+    border: 2px solid #2196F3;
     margin-right: 10px;
+    background-color: #121212;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+#letra:focus {
+    box-shadow: 0 0 20px #00BCD4;
+    outline: none;
 }
 
 #muñeco-container {
@@ -148,81 +165,162 @@ button {
 #muñeco {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-#resultado-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-#resultado-container img {
-    width: 100%;  
-    max-width: 400px; 
-    height: auto;
+#muñeco:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #2196F3, 0 0 50px #00BCD4;
 }
 
 .modal {
-    display: none; 
-    position: fixed; 
+    display: none;
+    position: fixed;
     z-index: 1000;
-    left: 50%; 
-    top: 50%; 
-    transform: translate(-50%, -50%); 
-    width: 450px; 
-    height: 400px; 
-    background-color: rgba(0, 0, 0, 0.7); 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.85);
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
 }
-
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: center;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
 }
-
 #modal-imagen {
     width: 200px;
-    height: 200px; 
+    height: 200px;
     margin-bottom: 20px;
-    object-fit: contain; 
+    object-fit: contain;
 }
-
 #modal-mensaje {
-    color: #1e3c72;
+    color: #00BCD4;
     margin-bottom: 25px;
-    font-size: 1.2rem;  
+    font-size: 1.3rem;
     font-weight: bold;
-    word-wrap: break-word; 
-    height: 50px; 
-    overflow: hidden; 
+    text-shadow: 0 0 10px #2196F3;
 }
-
 #modal-cerrar {
-    background-color: #0077b6;
-    padding: 12px 25px; 
-    font-size: 1rem; 
+    background: linear-gradient(to right, #0D47A1, #2196F3);
+    padding: 12px 25px;
+    font-size: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
     color: #fff;
     align-self: center;
 }
-
 #modal-cerrar:hover {
-    background-color: #00b4d8;
-    transform: scale(1.05);
+    background: linear-gradient(to left, #00BCD4, #2196F3);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00BCD4, 0 0 35px #2196F3;
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px #2196F3, 0 0 10px #0D47A1; }
+    50% { text-shadow: 0 0 15px #00BCD4, 0 0 25px #2196F3; }
+    100% { text-shadow: 0 0 5px #2196F3, 0 0 10px #0D47A1; }
+}
+
+@keyframes bgPulse {
+    0% { filter: brightness(0.9); }
+    50% { filter: brightness(1.1); }
+    100% { filter: brightness(0.9); }
+}
+
+@media (max-width: 900px) {
+    .juego-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+        max-width: 95%;
+    }
+    #info-juego h1 {
+        font-size: 2.2rem;
+    }
+    #palabra-oculta {
+        font-size: 1.6rem;
+        letter-spacing: 8px;
+    }
+    .botones {
+        flex-wrap: wrap;
+    }
+    button {
+        flex: 1 1 100px;
+        margin: 5px;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+    .juego-container {
+        padding: 15px;
+    }
+    #info-juego h1 {
+        font-size: 1.8rem;
+    }
+    #palabra-oculta {
+        font-size: 1.3rem;
+        letter-spacing: 6px;
+    }
+    #letra {
+        width: 45px;
+        padding: 8px;
+        font-size: 1rem;
+    }
+    .modal {
+        width: 90%;
+        height: auto;
+        max-width: 350px;
+    }
+    #modal-imagen {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 400px) {
+    #info-juego h1 {
+        font-size: 1.5rem;
+    }
+    #palabra-oculta {
+        font-size: 1.1rem;
+        letter-spacing: 4px;
+    }
+    #letra {
+        width: 35px;
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+    .modal-content {
+        padding: 15px;
+    }
+    #modal-mensaje {
+        font-size: 1.1rem;
+    }
 }
