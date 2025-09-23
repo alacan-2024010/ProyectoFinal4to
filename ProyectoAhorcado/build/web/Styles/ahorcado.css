@@ -9,8 +9,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-                url("../img/EstiloInicioSesion.png") no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                url("../img/F.png") no-repeat center center;
     background-size: cover;
     color: #f0f0f0;
     animation: bgPulse 8s ease-in-out infinite alternate;
