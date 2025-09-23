@@ -29,14 +29,11 @@ public class UsuarioDAO {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Si encuentra el usuario, crea el objeto Usuario con datos
                 usu = new Usuario();
                 usu.setCodigoUsuario(rs.getInt("codigo_usuario"));
                 usu.setNombre(rs.getString("nombre"));
                 usu.setContraseña(rs.getString("contraseña"));
-                // agrega otros campos si los tienes
             } else {
-                // Si no encuentra usuario, puedes retornar null o lanzar excepción o mensaje
                 System.out.println("Usuario o contraseña incorrectos");
             }
         } catch (Exception e) {
